@@ -1,0 +1,6 @@
+.default {
+  background-image: url('./bg.jpg');
+  background-size: cover;
+  background-position-x: center;
+  cursor: none !important;
+}

@@ -1,0 +1,10 @@
+node_modules
+npm-debug.log.*
+.DS_Store
+dist
+*.log
+coverage
+.idea
+.vscode/.browse.VC.db
+.vscode/.browse.VC.db-shm
+.vscode/.browse.VC.db-wal

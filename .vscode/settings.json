@@ -1,0 +1,10 @@
+// Place your settings in this file to overwrite default and user settings.
+
+{
+  "javascript.validate.enable": true,
+  "editor.rulers": [80],
+  "editor.fontSize": 13,
+  "editor.fontFamily": "SourceCodePro-Light",
+  "editor.fontLigatures": true,
+  "files.trimTrailingWhitespace": true
+}

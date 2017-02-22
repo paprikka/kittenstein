@@ -1,0 +1,39 @@
+declare module 'rx' {
+  // declare an Observable that boxes values of type T
+  declare class Observable<T> {
+    // merge can really take any type and merge them together, but I figured it's easiest
+    // to handle it this way.
+    static merge<R>(...sources: Observable<R>[]): Observable<R>;
+
+    // similar story with map -- map can project in other types (probably what you want usually).
+    map<R>(f: (item: T) => R): Observable<R>;
+
+    // scan will take the values of type T, sure,
+    // but it will accumulate something of a different type usually.
+    scan<R>(f: (prev: R, next: T) => R): Observable<R>;
+
+    // You might prefer startWith with type T, but I often use startWith to provide
+    // an event for my Observables using scan, which also will be used on subsequent
+    // streams as the "prev" value I defined above.
+    // This means my Observable is effectively [R, ...T[]], sure, which means that
+    // really my Observable is of type Observable<R|T>, but this is fine with me.
+    // More strict people might be offended.
+    startWith<R>(init: R): Observable<T>;
+
+    // subscribe can take optional arguments, but I'm going to go ahead and
+    // require the "next" observer, at the very least.
+    subscribe(
+      next: (item: T) => any,
+      error?: (error: any) => any,
+      complete?: (item: T) => any
+    ): {
+      // this is really a IDisposable in Rx, but I'm kind of lazy and don't plan on using much of it here.
+      unsubscribe: () => void;
+    };
+  }
+
+  // good old Subject, to which you can insert items for events.
+  declare class Subject<T> extends Observable<T> {
+    onNext(item: T): void;
+  }
+}

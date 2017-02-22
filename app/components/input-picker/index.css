@@ -1,0 +1,44 @@
+.annotation{
+  font-family: 'lcd';
+  font-size: .75rem;
+  text-align: center;
+  color: rgba(0, 255, 0, .7);
+  text-shadow: rgba(0, 255, 0, .7) 0 0 10px;
+}
+
+.default{
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.item{
+  flex: 1;
+  padding: 1rem;
+  transition: .3s ease transform,
+  	          .3s ease opacity;
+  opacity: .7;
+}
+
+.item img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  animation: bounceIn .7s ease-out 0s both;
+}
+
+.selected {
+  transform: scale(1.6) rotate(-20deg);
+  opacity: 1;
+}
+
+.itemName{
+  font-family: 'lcd';
+  font-size: .75rem;
+  text-align: center;
+  color: black;
+  position: relative;
+  background: lime;
+  padding: 0 0.2rem;
+  border-radius: .2rem;
+}
